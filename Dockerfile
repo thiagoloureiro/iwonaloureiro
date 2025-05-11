@@ -15,17 +15,20 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Production stage
+# Stage 2 - the production environment
 FROM nginx:alpine
+RUN chown -R nginx:nginx /usr/share/nginx/html && chmod -R 755 /usr/share/nginx/html && \
+        chown -R nginx:nginx /var/cache/nginx && \
+        chown -R nginx:nginx /var/log/nginx && \
+        chown -R nginx:nginx /etc/nginx/conf.d
+RUN touch /var/run/nginx.pid && \
+        chown -R nginx:nginx /var/run/nginx.pid
+RUN apk update && apk upgrade
 
-# Copy built assets from build stage
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy custom nginx config
+USER nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY privacy.html /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"] 
+COPY --from=react-build /app/dist /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
