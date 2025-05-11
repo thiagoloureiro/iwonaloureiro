@@ -1,18 +1,8 @@
-# Build stage
-FROM node:23-alpine as build
-
+# Stage 1
+FROM node:23 as react-build
 WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm ci
-
-# Copy source code
-COPY . .
-
-# Build the application
+COPY . ./
+RUN npm install
 RUN npm run build
 
 # Stage 2 - the production environment
