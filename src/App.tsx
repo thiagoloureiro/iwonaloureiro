@@ -67,11 +67,11 @@ function App() {
 
         <Header />
 
-        <main className="flex-grow flex flex-col">
+        <main className="grow flex flex-col">
           <PageTransition>
             <Routes>
               <Route path="/" element={
-                <section className="relative flex-grow flex items-center justify-center pt-8 md:pt-12 px-4">
+                <section className="relative grow flex items-center justify-center pt-8 md:pt-12 px-4">
                   <div className="container mx-auto flex flex-col items-center">
                     <div 
                       className="interactive-container"

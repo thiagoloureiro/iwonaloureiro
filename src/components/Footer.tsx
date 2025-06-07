@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
             <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Contact Us</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <Mail size={18} className="text-primary mt-1 flex-shrink-0" />
+                <Mail size={18} className="text-primary mt-1 shrink-0" />
                 <span className="text-gray-600">hello@curves.design</span>
               </div>
               <p className="text-gray-600">

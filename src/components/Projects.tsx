@@ -70,7 +70,7 @@ const Projects: React.FC = () => {
                   className="object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <span className="text-sm uppercase tracking-wider font-medium mb-2 block">{project.category}</span>
                   <h3 className="text-2xl font-light mb-2">{project.title}</h3>
