@@ -1,4 +1,8 @@
 import React from 'react';
+import w1 from '../projects/01/w1.jpg';
+import w2 from '../projects/01/w2.jpg';
+import w3 from '../projects/01/w3.jpg';
+import w4 from '../projects/01/w4.jpg';
 
 interface Project {
   id: string;
@@ -18,7 +22,7 @@ const projects: Project[] = [
     category: 'Architecture',
     location: 'Los Angeles, CA',
     year: '2023',
-    imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+    imageUrl: w1
   },
   {
     id: '2',
@@ -27,7 +31,7 @@ const projects: Project[] = [
     category: 'Interior Design',
     location: 'New York, NY',
     year: '2023',
-    imageUrl: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'
+    imageUrl: w2
   },
   {
     id: '3',
@@ -36,7 +40,7 @@ const projects: Project[] = [
     category: 'Architecture',
     location: 'San Francisco, CA',
     year: '2022',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+    imageUrl: w3
   },
   {
     id: '4',
@@ -45,7 +49,7 @@ const projects: Project[] = [
     category: 'Interior Design',
     location: 'Chicago, IL',
     year: '2023',
-    imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80'
+    imageUrl: w4
   }
 ];
 
