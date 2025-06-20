@@ -97,18 +97,60 @@ const homesImages: Project[] = [
 
 const menuOptions = ['All', 'Homes', 'Apartments'];
 
+const apartmentProjects = [
+  {
+    id: 'krakow-lwowska',
+    name: 'Kraków / Lwowska - Poland',
+    cover: w1, // first image from 01
+    images: [
+      w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14, w15, w16, w17, w18, w19, w20, w21, w22
+    ],
+  },
+];
+
+const homeProjects = [
+  {
+    id: 'odporyszow',
+    name: 'Odporyszów - Poland',
+    cover: a01, // first image from 02
+    images: [
+      a01, a02, a03, a04, a05, a06, a07, a08, a09, a10, a11, a12, a13, a14, a15, a16, a17
+    ],
+  },
+];
+
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<'All' | 'Homes' | 'Apartments'>('All');
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState<number>(0);
 
+  useEffect(() => {
+    setSelectedProject(null); // Reset subproject when switching main category
+  }, [selectedCategory]);
+
   let filteredProjects: Project[] = [];
+  let galleryImages: string[] = [];
+
   if (selectedCategory === 'All') {
     filteredProjects = [...homesImages, ...apartmentsImages];
+    galleryImages = filteredProjects.map(p => p.imageUrl);
   } else if (selectedCategory === 'Homes') {
-    filteredProjects = homesImages;
+    if (!selectedProject) {
+      // Show submenu with homeProjects
+      filteredProjects = [];
+    } else {
+      const proj = homeProjects.find(p => p.id === selectedProject);
+      galleryImages = proj ? proj.images : [];
+    }
   } else if (selectedCategory === 'Apartments') {
-    filteredProjects = apartmentsImages;
+    if (!selectedProject) {
+      // Show submenu with apartmentProjects
+      filteredProjects = [];
+    } else {
+      const proj = apartmentProjects.find(p => p.id === selectedProject);
+      galleryImages = proj ? proj.images : [];
+    }
   }
 
   const openModal = useCallback((idx: number) => {
@@ -121,12 +163,12 @@ const Projects: React.FC = () => {
   }, []);
 
   const showPrev = useCallback(() => {
-    setModalIndex((prev) => (prev === 0 ? filteredProjects.length - 1 : prev - 1));
-  }, [filteredProjects.length]);
+    setModalIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+  }, [galleryImages.length]);
 
   const showNext = useCallback(() => {
-    setModalIndex((prev) => (prev === filteredProjects.length - 1 ? 0 : prev + 1));
-  }, [filteredProjects.length]);
+    setModalIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+  }, [galleryImages.length]);
 
   useEffect(() => {
     if (!modalOpen) return;
@@ -151,14 +193,14 @@ const Projects: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Left Menu */}
           <aside className="md:w-1/4 w-full mb-8 md:mb-0">
-            <nav className="bg-gray-50 rounded-lg shadow p-4 sticky top-24">
+            <nav className="sticky top-24">
               <ul className="space-y-2">
                 {menuOptions.map((option) => (
                   <li key={option}>
                     <button
-                      className={`w-full text-left px-4 py-2 rounded transition font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 ${
-                        selectedCategory === option ? 'bg-gray-200 text-gray-900' : ''
-                      }`}
+                      className={`w-full text-left font-medium transition-colors focus:outline-none
+                        ${selectedCategory === option ? 'text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'}`}
+                      style={{ background: 'none', border: 'none', padding: 0 }}
                       onClick={() => setSelectedCategory(option as 'All' | 'Homes' | 'Apartments')}
                     >
                       {option}
@@ -168,47 +210,64 @@ const Projects: React.FC = () => {
               </ul>
             </nav>
           </aside>
-          {/* Projects Grid */}
-          <div className="md:w-3/4 w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredProjects.map((project, idx) => (
-              <div key={project.id} className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer" onClick={() => openModal(idx)}>
-                <div className="aspect-w-16 aspect-h-9">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    className="object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <span className="text-sm uppercase tracking-wider font-medium mb-2 block">{project.category}</span>
-                    <h3 className="text-2xl font-light mb-2">{project.title}</h3>
-                    <p className="text-sm text-gray-200 mb-4">{project.description || ' '}</p>
-                    <div className="flex justify-between text-sm">
-                      <span>{project.location}</span>
-                      <span>{project.year}</span>
+          {/* Projects Grid or Submenu */}
+          <div className="md:w-3/4 w-full">
+            {/* Submenu for Homes */}
+            {selectedCategory === 'Homes' && !selectedProject && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {homeProjects.map((proj) => (
+                  <div key={proj.id} className="cursor-pointer group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl" onClick={() => setSelectedProject(proj.id)}>
+                    <div className="aspect-w-16 aspect-h-9">
+                      <img src={proj.cover} alt={proj.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="absolute inset-0 bg-black/40 flex items-end p-6">
+                      <span className="text-white text-2xl font-light">{proj.name}</span>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-            {filteredProjects.length === 0 && (
-              <div className="col-span-full text-center text-gray-500 py-12">No projects found.</div>
+            )}
+            {/* Submenu for Apartments */}
+            {selectedCategory === 'Apartments' && !selectedProject && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {apartmentProjects.map((proj) => (
+                  <div key={proj.id} className="cursor-pointer group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl" onClick={() => setSelectedProject(proj.id)}>
+                    <div className="aspect-w-16 aspect-h-9">
+                      <img src={proj.cover} alt={proj.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="absolute inset-0 bg-black/40 flex items-end p-6">
+                      <span className="text-white text-2xl font-light">{proj.name}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {/* Gallery for selected subproject or All */}
+            {(selectedCategory === 'All' || selectedProject) && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                {galleryImages.map((img, idx) => (
+                  <div key={idx} className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer" onClick={() => openModal(idx)}>
+                    <div className="aspect-w-16 aspect-h-9">
+                      <img src={img} alt="Project" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                  </div>
+                ))}
+                {galleryImages.length === 0 && (
+                  <div className="col-span-full text-center text-gray-500 py-12">No images found.</div>
+                )}
+              </div>
             )}
           </div>
         </div>
       </div>
       {/* Modal Popup */}
-      {modalOpen && filteredProjects[modalIndex] && (
+      {modalOpen && galleryImages[modalIndex] && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={closeModal}>
           <div className="relative max-w-5xl w-full mx-4" style={{ maxWidth: '1200px' }} onClick={e => e.stopPropagation()}>
             <button className="absolute top-4 right-4 text-white text-3xl font-light" onClick={closeModal} aria-label="Close">&times;</button>
             <button className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-3xl px-2" onClick={showPrev} aria-label="Previous">&#8592;</button>
-            <img src={filteredProjects[modalIndex].imageUrl} alt={filteredProjects[modalIndex].title} className="w-full max-h-[96vh] object-contain rounded-lg shadow-lg" />
+            <img src={galleryImages[modalIndex]} alt="Project" className="w-full max-h-[96vh] object-contain rounded-lg shadow-lg" />
             <button className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-3xl px-2" onClick={showNext} aria-label="Next">&#8594;</button>
-            <div className="text-center text-white mt-4">
-              <span className="text-lg font-light">{filteredProjects[modalIndex].title}</span>
-            </div>
           </div>
         </div>
       )}
