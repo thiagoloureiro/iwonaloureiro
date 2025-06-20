@@ -74,7 +74,7 @@ const About: React.FC = () => {
             </div>
             <div className="text-center">
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                src="https://pethelpful.com/.image/w_3840,q_auto:good,c_fill,ar_4:3/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg"
                 alt="Team member"
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
               />
@@ -83,7 +83,7 @@ const About: React.FC = () => {
             </div>
             <div className="text-center">
               <img
-                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1461&q=80"
+                src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg"
                 alt="Team member"
                 className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
               />
