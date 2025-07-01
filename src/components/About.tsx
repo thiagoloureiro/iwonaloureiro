@@ -22,7 +22,7 @@ const About: React.FC = () => {
             />
           </div>
           <div className="space-y-6">
-            <h2 className="text-2xl font-light text-gray-900">Our Story</h2>
+            <h2 className="text-2xl font-light text-gray-900">My Story</h2>
             <p className="text-gray-600">
 I founded my own design studio after 13 years of working as an architect in Kraków. Although interior design wasn't part of my original career plans, I eventually realized that it’s the field that brings me the greatest satisfaction and sense of purpose. With every new project, I became more confident that this was the right path — one that allows me to combine my professional experience, aesthetic sensitivity, and the desire to create something truly meaningful for others.
 
