@@ -24,74 +24,20 @@ const About: React.FC = () => {
           <div className="space-y-6">
             <h2 className="text-2xl font-light text-gray-900">Our Story</h2>
             <p className="text-gray-600">
-              Founded in 2010, our studio has been at the forefront of architectural innovation, 
-              combining timeless design principles with cutting-edge technology. We believe that 
-              great architecture should not only be beautiful but also enhance the lives of those 
-              who inhabit it.
+I founded my own design studio after 13 years of working as an architect in Kraków. Although interior design wasn't part of my original career plans, I eventually realized that it’s the field that brings me the greatest satisfaction and sense of purpose. With every new project, I became more confident that this was the right path — one that allows me to combine my professional experience, aesthetic sensitivity, and the desire to create something truly meaningful for others.
+
+I believe that the spaces we live in have a real impact on our well-being — they’re where we work, relax, sleep, cook, and spend time with loved ones. That’s why I create interiors that are not only functional and comfortable, but also visually pleasing and enjoyable to be in. Spaces that simply feel right.
+
             </p>
             <p className="text-gray-600">
-              Our team of passionate architects and designers brings together diverse perspectives 
-              and expertise, allowing us to create unique solutions for each project while 
-              maintaining the highest standards of quality and sustainability.
+I am a graduate of the Faculty of Architecture and Urban Planning at the Cracow University of Technology and hold a license for unlimited architectural design. Art has always been a part of my life — painting, drawing, and graphic design have been lifelong passions that continue to inspire my work.
+
+Years of professional experience, aesthetic intuition, and an openness to new ideas allow me to design interiors tailored to the individual needs and lifestyles of my clients — with professionalism and a touch of uniqueness. Every project is a new story, a new challenge, and an opportunity to create something truly special.
             </p>
           </div>
         </div>
 
-        {/* Values Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="text-center p-6">
-            <h3 className="text-xl font-light text-gray-900 mb-4">Innovation</h3>
-            <p className="text-gray-600">
-              Pushing boundaries and exploring new possibilities in design and construction.
-            </p>
-          </div>
-          <div className="text-center p-6">
-            <h3 className="text-xl font-light text-gray-900 mb-4">Sustainability</h3>
-            <p className="text-gray-600">
-              Creating environmentally responsible designs that stand the test of time.
-            </p>
-          </div>
-          <div className="text-center p-6">
-            <h3 className="text-xl font-light text-gray-900 mb-4">Craftsmanship</h3>
-            <p className="text-gray-600">
-              Attention to detail and dedication to quality in every aspect of our work.
-            </p>
-          </div>
-        </div>
 
-        {/* Team Section */}
-        <div className="text-center">
-          <h2 className="text-2xl font-light text-gray-900 mb-8">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1488&q=80"
-                alt="Team member"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-light text-gray-900">Sarah Johnson</h3>
-              <p className="text-gray-600">Principal Architect</p>
-            </div>
-            <div className="text-center">
-              <img
-                src="https://pethelpful.com/.image/w_3840,q_auto:good,c_fill,ar_4:3/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg"
-                alt="Team member"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-light text-gray-900">Michael Chen</h3>
-              <p className="text-gray-600">Design Director</p>
-            </div>
-            <div className="text-center">
-              <img
-                src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg"
-                alt="Team member"
-                className="w-48 h-48 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-xl font-light text-gray-900">Emma Rodriguez</h3>
-              <p className="text-gray-600">Project Manager</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

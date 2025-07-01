@@ -9,39 +9,35 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: 'Architectural Design',
-    description: 'Comprehensive architectural solutions from concept to completion.',
+    title: 'Consultation',
+    description: 'During our first meeting, we’ll discuss your expectations and vision. I’ll learn more about your needs, inspirations, and lifestyle, and present my offer in more detail.',
     icon: '🏛️',
     features: [
-      'Residential Architecture',
-      'Commercial Buildings',
-      'Urban Planning',
-      'Sustainable Design',
-      'Renovation & Restoration'
+     
     ]
   },
   {
-    title: 'Interior Design',
-    description: 'Creating harmonious and functional interior spaces.',
+    title: 'Concept Design',
+    description: 'I’ll prepare functional layouts in 2D format, divided into zones. You’ll also receive interior visualizations that showcase proposed colors, materials, furniture, and lighting.',
     icon: '🎨',
     features: [
-      'Space Planning',
-      'Material Selection',
-      'Custom Furniture Design',
-      'Lighting Design',
-      'Color Schemes'
+     
     ]
   },
   {
-    title: 'Project Management',
-    description: 'End-to-end project management ensuring smooth execution.',
+    title: 'Detailed Design',
+    description: 'I’ll develop a complete execution-ready interior design package, including: functional plans with descriptions, lighting layouts, sections and elevations, custom furniture drawings with dimensions, equipment specifications, and final visualizations.',
     icon: '📋',
     features: [
-      'Budget Management',
-      'Timeline Planning',
-      'Contractor Coordination',
-      'Quality Control',
-      'Progress Monitoring'
+    
+    ]
+  },
+   {
+    title: 'Author Supervision',
+    description: 'As part of my supervision service, I will ensure the project is implemented according to the documentation, assist in selecting specific materials, colors, and solutions, and provide on-site support during construction when needed.',
+    icon: '📋',
+    features: [
+    
     ]
   }
 ];
@@ -77,32 +73,7 @@ const Services: React.FC = () => {
           ))}
         </div>
 
-        {/* Process Section */}
-        <div className="bg-gray-50 rounded-lg p-8 mb-16">
-          <h2 className="text-2xl font-light text-gray-900 mb-8 text-center">Our Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4">1</div>
-              <h3 className="text-lg font-light text-gray-900 mb-2">Consultation</h3>
-              <p className="text-gray-600">Initial meeting to understand your vision and requirements</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4">2</div>
-              <h3 className="text-lg font-light text-gray-900 mb-2">Concept Design</h3>
-              <p className="text-gray-600">Developing initial concepts and design direction</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4">3</div>
-              <h3 className="text-lg font-light text-gray-900 mb-2">Development</h3>
-              <p className="text-gray-600">Refining designs and preparing detailed documentation</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4">4</div>
-              <h3 className="text-lg font-light text-gray-900 mb-2">Implementation</h3>
-              <p className="text-gray-600">Overseeing construction and ensuring quality</p>
-            </div>
-          </div>
-        </div>
+       
 
         {/* CTA Section */}
         <div className="text-center">
