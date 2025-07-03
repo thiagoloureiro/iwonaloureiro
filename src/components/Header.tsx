@@ -26,6 +26,7 @@ const Header: React.FC = () => {
 
   const handleLanguageChange = (lng: string) => {
     i18n.changeLanguage(lng);
+    localStorage.setItem('i18nextLng', lng);
   };
 
   return (
