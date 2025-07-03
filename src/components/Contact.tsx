@@ -113,52 +113,15 @@ const Contact: React.FC = () => {
                   <Mail className="w-6 h-6 text-gray-900 mt-1" />
                   <div>
                     <h3 className="text-lg font-light text-gray-900">Email</h3>
-                    <p className="text-gray-600">hello@architecture.com</p>
+                    <p className="text-gray-600">iwonaloureiro@outlook.com</p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <Phone className="w-6 h-6 text-gray-900 mt-1" />
-                  <div>
-                    <h3 className="text-lg font-light text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-gray-900 mt-1" />
-                  <div>
-                    <h3 className="text-lg font-light text-gray-900">Office</h3>
-                    <p className="text-gray-600">
-                      123 Design Street<br />
-                      San Francisco, CA 94107<br />
-                      United States
-                    </p>
-                  </div>
-                </div>
+            
+               
               </div>
             </div>
 
-            {/* Map */}
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.097156418538!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjYiTiAxMjLCsDI1JzA5LjgiVw!5e0!3m2!1sen!2sus!4v1234567890"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            {/* Business Hours */}
-            <div>
-              <h3 className="text-lg font-light text-gray-900 mb-4">Business Hours</h3>
-              <div className="space-y-2">
-                <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
-                <p className="text-gray-600">Sunday: Closed</p>
-              </div>
-            </div>
+        
           </div>
         </div>
       </div>

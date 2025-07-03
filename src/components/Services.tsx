@@ -10,7 +10,7 @@ interface Service {
 const services: Service[] = [
   {
     title: 'Consultation',
-    description: 'During our first meeting, we’ll discuss your expectations and vision. I’ll learn more about your needs, inspirations, and lifestyle, and present my offer in more detail.',
+    description: 'During our first meeting, well discuss your expectations and vision. Ill learn more about your needs, inspirations, and lifestyle, and present my offer in more detail.',
     icon: '🏛️',
     features: [
      
@@ -18,7 +18,7 @@ const services: Service[] = [
   },
   {
     title: 'Concept Design',
-    description: 'I’ll prepare functional layouts in 2D format, divided into zones. You’ll also receive interior visualizations that showcase proposed colors, materials, furniture, and lighting.',
+    description: 'Ill prepare functional layouts in 2D format, divided into zones. Youll also receive interior visualizations that showcase proposed colors, materials, furniture, and lighting.',
     icon: '🎨',
     features: [
      
@@ -26,7 +26,7 @@ const services: Service[] = [
   },
   {
     title: 'Detailed Design',
-    description: 'I’ll develop a complete execution-ready interior design package, including: functional plans with descriptions, lighting layouts, sections and elevations, custom furniture drawings with dimensions, equipment specifications, and final visualizations.',
+    description: 'Ill develop a complete execution-ready interior design package, including: functional plans with descriptions, lighting layouts, sections and elevations, custom furniture drawings with dimensions, equipment specifications, and final visualizations.',
     icon: '📋',
     features: [
     
@@ -48,17 +48,21 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-light tracking-tight text-gray-900 mb-4">Our Services</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Comprehensive architectural and design solutions tailored to your vision.
+          <h1 className="text-3xl font-light tracking-tight text-gray-900 mb-4">SERVICES</h1>
+          <p className="text-lg text-gray-600  mx-auto">
+            Interior design is both my passion and my area of expertise. I create spaces that combine aesthetics with functionality, always tailored to the individual needs of my clients. Whether I'm working on an apartment, a house, or a commercial interior, my goal is to design a place that simply feels good to be in.
+
+Every project is carried out with the utmost care and attention to detail. I listen closely to my clients expectations, offer inspiration, and work collaboratively to find the best solutions. With years of experience, knowledge of current trends, and a practical approach, I provide comprehensive, high-quality design services.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-8 transition-transform duration-300 hover:transform hover:scale-105">
-              <div className="text-4xl mb-4">{service.icon}</div>
+            <div key={index} className="bg-white rounded-lg shadow-lg p-8 transition-transform duration-300">
+              <div className="text-4xl mb-4 font-extrabold text-gray-200 select-none">
+                {String(index + 1).padStart(2, '0')}
+              </div>
               <h2 className="text-2xl font-light text-gray-900 mb-4">{service.title}</h2>
               <p className="text-gray-600 mb-6">{service.description}</p>
               <ul className="space-y-2">
@@ -78,7 +82,7 @@ const Services: React.FC = () => {
         {/* CTA Section */}
         <div className="text-center">
           <h2 className="text-2xl font-light text-gray-900 mb-4">Ready to Start Your Project?</h2>
-          <p className="text-gray-600 mb-8">Let's discuss how we can bring your vision to life.</p>
+          <p className="text-gray-600 mb-8">Lets discuss how we can bring your vision to life.</p>
           <a
             href="/contact"
             className="inline-block bg-gray-900 text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors duration-300"

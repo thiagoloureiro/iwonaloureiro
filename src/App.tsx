@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import InteractiveMenu from './components/InteractiveMenu';
 import Projects from './components/Projects';
 import About from './components/About';
@@ -90,8 +89,6 @@ function App() {
             </Routes>
           </PageTransition>
         </main>
-
-        <Footer />
       </div>
     </Router>
   );

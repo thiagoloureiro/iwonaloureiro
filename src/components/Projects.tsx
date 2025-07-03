@@ -185,10 +185,8 @@ const Projects: React.FC = () => {
     <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-light tracking-tight text-gray-900 mb-4">Our Projects</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Exploring the intersection of form and function through innovative architecture and interior design solutions.
-          </p>
+          <h1 className="text-3xl font-light tracking-tight text-gray-900 mb-2">PROJECTS</h1>
+
         </div>
         <div className="flex flex-col md:flex-row gap-8">
           {/* Left Menu */}
