@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const { t } = useTranslation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,20 +30,20 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-light tracking-tight text-gray-900 mb-4">Contact Us</h1>
+          <h1 className="text-4xl font-light tracking-tight text-gray-900 mb-4">{t('contact.title')}</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Let's discuss your next project and how we can help bring your vision to life.
+            {t('contact.intro')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-light text-gray-900 mb-6">Send us a Message</h2>
+            <h2 className="text-2xl font-light text-gray-900 mb-6">{t('contact.formTitle')}</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
+                  {t('contact.name')}
                 </label>
                 <input
                   type="text"
@@ -55,7 +57,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
+                  {t('contact.email')}
                 </label>
                 <input
                   type="email"
@@ -69,7 +71,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                  Subject
+                  {t('contact.subject')}
                 </label>
                 <input
                   type="text"
@@ -83,7 +85,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
@@ -99,7 +101,7 @@ const Contact: React.FC = () => {
                 type="submit"
                 className="w-full bg-gray-900 text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-colors duration-300"
               >
-                Send Message
+                {t('contact.send')}
               </button>
             </form>
           </div>
@@ -107,21 +109,17 @@ const Contact: React.FC = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-2xl font-light text-gray-900 mb-6">Get in Touch</h2>
+              <h2 className="text-2xl font-light text-gray-900 mb-6">{t('contact.infoTitle')}</h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
                   <Mail className="w-6 h-6 text-gray-900 mt-1" />
                   <div>
-                    <h3 className="text-lg font-light text-gray-900">Email</h3>
+                    <h3 className="text-lg font-light text-gray-900">{t('contact.emailLabel')}</h3>
                     <p className="text-gray-600">iwonaloureiro@outlook.com</p>
                   </div>
                 </div>
-            
-               
               </div>
             </div>
-
-        
           </div>
         </div>
       </div>

@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "projects": "Projekty",
+    "services": "Usługi",
+    "about": "O mnie",
+    "contact": "Kontakt"
+  },
+  "header": {
+    "title": "Iwona Loureiro Studio - Projektowanie Wnętrz i Architektura"
+  },
+  "about": {
+    "title": "O MNIE",
+    "myStory": "Moja historia",
+    "myArt": "Moja sztuka",
+    "story1": "Założyłam własne studio projektowe po 13 latach pracy jako architekt w Krakowie. Choć projektowanie wnętrz nie było częścią moich pierwotnych planów zawodowych, z czasem odkryłam, że to właśnie ta dziedzina daje mi największą satysfakcję i poczucie spełnienia. Z każdym nowym projektem utwierdzałam się w przekonaniu, że to właściwa droga — pozwalająca łączyć doświadczenie zawodowe, wrażliwość estetyczną i chęć tworzenia czegoś naprawdę wartościowego dla innych. Wierzę, że przestrzenie, w których żyjemy, mają realny wpływ na nasze samopoczucie — to w nich pracujemy, odpoczywamy, śpimy, gotujemy i spędzamy czas z bliskimi. Dlatego tworzę wnętrza nie tylko funkcjonalne i wygodne, ale też estetyczne i przyjemne w odbiorze. Przestrzenie, w których po prostu dobrze się czujemy.",
+    "story2": "Jestem absolwentką Wydziału Architektury i Urbanistyki Politechniki Krakowskiej oraz posiadam uprawnienia do projektowania architektonicznego bez ograniczeń. Sztuka od zawsze była obecna w moim życiu — malarstwo, rysunek i grafika to pasje, które nieustannie inspirują moją pracę. Lata doświadczenia zawodowego, wyczucie estetyki i otwartość na nowe pomysły pozwalają mi projektować wnętrza dopasowane do indywidualnych potrzeb i stylu życia klientów — z profesjonalizmem i nutą wyjątkowości. Każdy projekt to nowa historia, nowe wyzwanie i szansa na stworzenie czegoś naprawdę wyjątkowego."
+  },
+  "projects": {
+    "title": "PROJEKTY",
+    "all": "Wszystkie",
+    "homes": "Domy",
+    "apartments": "Apartamenty",
+    "noImages": "Brak zdjęć."
+  },
+  "services": {
+    "title": "USŁUGI",
+    "description": "Projektowanie wnętrz to moja pasja i specjalność. Tworzę przestrzenie łączące estetykę z funkcjonalnością, zawsze dopasowane do indywidualnych potrzeb klientów. Niezależnie czy pracuję nad mieszkaniem, domem czy wnętrzem komercyjnym, moim celem jest zaprojektowanie miejsca, w którym po prostu dobrze się przebywa. Każdy projekt realizuję z najwyższą starannością i dbałością o szczegóły. Uważnie słucham oczekiwań klientów, inspiruję i wspólnie szukam najlepszych rozwiązań. Dzięki wieloletniemu doświadczeniu, znajomości trendów i praktycznemu podejściu oferuję kompleksowe, wysokiej jakości usługi projektowe.",
+    "consultation": "Konsultacja",
+    "consultationDesc": "Podczas pierwszego spotkania omówimy Twoje oczekiwania i wizję. Poznam Twoje potrzeby, inspiracje i styl życia oraz przedstawię szczegóły mojej oferty.",
+    "concept": "Projekt koncepcyjny",
+    "conceptDesc": "Przygotuję układy funkcjonalne w formie 2D, podzielone na strefy. Otrzymasz także wizualizacje wnętrz prezentujące proponowane kolory, materiały, meble i oświetlenie.",
+    "detailed": "Projekt wykonawczy",
+    "detailedDesc": "Opracuję kompletny projekt wnętrza gotowy do realizacji, obejmujący: plany funkcjonalne z opisami, układy oświetlenia, przekroje i rzuty, rysunki mebli na wymiar z wymiarowaniem, specyfikacje wyposażenia oraz finalne wizualizacje.",
+    "supervision": "Nadzór autorski",
+    "supervisionDesc": "W ramach nadzoru autorskiego czuwam nad realizacją projektu zgodnie z dokumentacją, pomagam w doborze materiałów, kolorów i rozwiązań oraz oferuję wsparcie na budowie, gdy jest to potrzebne.",
+    "ctaTitle": "Chcesz zacząć projekt?",
+    "ctaDesc": "Porozmawiajmy, jak możemy zrealizować Twoją wizję.",
+    "ctaBtn": "Skontaktuj się"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "intro": "Porozmawiajmy o Twoim projekcie i o tym, jak możemy pomóc zrealizować Twoją wizję.",
+    "formTitle": "Wyślij wiadomość",
+    "name": "Imię i nazwisko",
+    "email": "Email",
+    "subject": "Temat",
+    "message": "Wiadomość",
+    "send": "Wyślij wiadomość",
+    "infoTitle": "Skontaktuj się",
+    "emailLabel": "Email",
+    "getInTouch": "Skontaktuj się"
+  },
+  "footer": {
+    "copyright": "© 2025 Iwona Loureiro - ILStudio. Wszelkie prawa zastrzeżone."
+  }
+} 

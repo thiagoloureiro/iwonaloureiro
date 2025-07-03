@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "header": {
+    "title": "Iwona Loureiro Studio - Interior Design & Architecture"
+  },
+  "about": {
+    "title": "ABOUT ME",
+    "myStory": "My Story",
+    "myArt": "My Art",
+    "story1": "I founded my own design studio after 13 years of working as an architect in Kraków. Although interior design wasn't part of my original career plans, I eventually realized that it's the field that brings me the greatest satisfaction and sense of purpose. With every new project, I became more confident that this was the right path — one that allows me to combine my professional experience, aesthetic sensitivity, and the desire to create something truly meaningful for others. I believe that the spaces we live in have a real impact on our well-being — they're where we work, relax, sleep, cook, and spend time with loved ones. That's why I create interiors that are not only functional and comfortable, but also visually pleasing and enjoyable to be in. Spaces that simply feel right.",
+    "story2": "I am a graduate of the Faculty of Architecture and Urban Planning at the Cracow University of Technology and hold a license for unlimited architectural design. Art has always been a part of my life — painting, drawing, and graphic design have been lifelong passions that continue to inspire my work. Years of professional experience, aesthetic intuition, and an openness to new ideas allow me to design interiors tailored to the individual needs and lifestyles of my clients — with professionalism and a touch of uniqueness. Every project is a new story, a new challenge, and an opportunity to create something truly special."
+  },
+  "projects": {
+    "title": "PROJECTS",
+    "all": "All",
+    "homes": "Homes",
+    "apartments": "Apartments",
+    "noImages": "No images found."
+  },
+  "services": {
+    "title": "SERVICES",
+    "description": "Interior design is both my passion and my area of expertise. I create spaces that combine aesthetics with functionality, always tailored to the individual needs of my clients. Whether I'm working on an apartment, a house, or a commercial interior, my goal is to design a place that simply feels good to be in. Every project is carried out with the utmost care and attention to detail. I listen closely to my clients expectations, offer inspiration, and work collaboratively to find the best solutions. With years of experience, knowledge of current trends, and a practical approach, I provide comprehensive, high-quality design services.",
+    "consultation": "Consultation",
+    "consultationDesc": "During our first meeting, we'll discuss your expectations and vision. I'll learn more about your needs, inspirations, and lifestyle, and present my offer in more detail.",
+    "concept": "Concept Design",
+    "conceptDesc": "I'll prepare functional layouts in 2D format, divided into zones. You'll also receive interior visualizations that showcase proposed colors, materials, furniture, and lighting.",
+    "detailed": "Detailed Design",
+    "detailedDesc": "I'll develop a complete execution-ready interior design package, including: functional plans with descriptions, lighting layouts, sections and elevations, custom furniture drawings with dimensions, equipment specifications, and final visualizations.",
+    "supervision": "Author Supervision",
+    "supervisionDesc": "As part of my supervision service, I will ensure the project is implemented according to the documentation, assist in selecting specific materials, colors, and solutions, and provide on-site support during construction when needed.",
+    "ctaTitle": "Ready to Start Your Project?",
+    "ctaDesc": "Let's discuss how we can bring your vision to life.",
+    "ctaBtn": "Get in Touch"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Let's discuss your next project and how we can help bring your vision to life.",
+    "formTitle": "Send us a Message",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "infoTitle": "Get in Touch",
+    "emailLabel": "Email",
+    "getInTouch": "Get in Touch"
+  },
+  "footer": {
+    "copyright": "© 2025 Iwona Loureiro - ILStudio. All rights reserved."
+  }
+} 

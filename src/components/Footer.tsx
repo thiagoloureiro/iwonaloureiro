@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-white py-8 font-['Inter']">
       <div className="container mx-auto px-4 md:px-6">
@@ -16,7 +18,7 @@ const Footer: React.FC = () => {
 
         <div className="pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-gray-600 text-sm font-light">© 2025 Iwona Loureiro - ILStudio. All rights reserved.</p>
+            <p className="text-gray-600 text-sm font-light">{t('footer.copyright')}</p>
           </div>
    
         </div>

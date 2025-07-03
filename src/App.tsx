@@ -8,6 +8,7 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import PageTransition from './components/PageTransition';
 import './styles/animations.css';
+import './i18n';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

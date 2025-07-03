@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Service {
   title: string;
@@ -7,52 +8,51 @@ interface Service {
   features: string[];
 }
 
-const services: Service[] = [
-  {
-    title: 'Consultation',
-    description: 'During our first meeting, well discuss your expectations and vision. Ill learn more about your needs, inspirations, and lifestyle, and present my offer in more detail.',
-    icon: '🏛️',
-    features: [
-     
-    ]
-  },
-  {
-    title: 'Concept Design',
-    description: 'Ill prepare functional layouts in 2D format, divided into zones. Youll also receive interior visualizations that showcase proposed colors, materials, furniture, and lighting.',
-    icon: '🎨',
-    features: [
-     
-    ]
-  },
-  {
-    title: 'Detailed Design',
-    description: 'Ill develop a complete execution-ready interior design package, including: functional plans with descriptions, lighting layouts, sections and elevations, custom furniture drawings with dimensions, equipment specifications, and final visualizations.',
-    icon: '📋',
-    features: [
-    
-    ]
-  },
-   {
-    title: 'Author Supervision',
-    description: 'As part of my supervision service, I will ensure the project is implemented according to the documentation, assist in selecting specific materials, colors, and solutions, and provide on-site support during construction when needed.',
-    icon: '📋',
-    features: [
-    
-    ]
-  }
-];
-
 const Services: React.FC = () => {
+  const { t } = useTranslation();
+  const services: Service[] = [
+    {
+      title: t('services.consultation'),
+      description: t('services.consultationDesc'),
+      icon: '🏛️',
+      features: [
+       
+      ]
+    },
+    {
+      title: t('services.concept'),
+      description: t('services.conceptDesc'),
+      icon: '🎨',
+      features: [
+       
+      ]
+    },
+    {
+      title: t('services.detailed'),
+      description: t('services.detailedDesc'),
+      icon: '📋',
+      features: [
+      
+      ]
+    },
+    {
+      title: t('services.supervision'),
+      description: t('services.supervisionDesc'),
+      icon: '📋',
+      features: [
+      
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl font-light tracking-tight text-gray-900 mb-4">SERVICES</h1>
+          <h1 className="text-3xl font-light tracking-tight text-gray-900 mb-4">{t('services.title')}</h1>
           <p className="text-lg text-gray-600  mx-auto">
-            Interior design is both my passion and my area of expertise. I create spaces that combine aesthetics with functionality, always tailored to the individual needs of my clients. Whether I'm working on an apartment, a house, or a commercial interior, my goal is to design a place that simply feels good to be in.
-
-Every project is carried out with the utmost care and attention to detail. I listen closely to my clients expectations, offer inspiration, and work collaboratively to find the best solutions. With years of experience, knowledge of current trends, and a practical approach, I provide comprehensive, high-quality design services.
+            {t('services.description')}
           </p>
         </div>
 
@@ -81,13 +81,13 @@ Every project is carried out with the utmost care and attention to detail. I lis
 
         {/* CTA Section */}
         <div className="text-center">
-          <h2 className="text-2xl font-light text-gray-900 mb-4">Ready to Start Your Project?</h2>
-          <p className="text-gray-600 mb-8">Lets discuss how we can bring your vision to life.</p>
+          <h2 className="text-2xl font-light text-gray-900 mb-4">{t('services.ctaTitle')}</h2>
+          <p className="text-gray-600 mb-8">{t('services.ctaDesc')}</p>
           <a
             href="/contact"
             className="inline-block bg-gray-900 text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors duration-300"
           >
-            Get in Touch
+            {t('services.ctaBtn')}
           </a>
         </div>
       </div>
