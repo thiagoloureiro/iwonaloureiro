@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-light tracking-tight text-gray-900 mb-4">{t('contact.title')}</h1>
+          <h1 className="text-3xl font-light tracking-tight text-gray-900 mb-4">{t('contact.title')}</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {t('contact.intro')}
           </p>
