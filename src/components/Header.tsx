@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { i18n, t } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,13 @@ const Header: React.FC = () => {
     localStorage.setItem('i18nextLng', lng);
   };
 
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
@@ -39,26 +47,36 @@ const Header: React.FC = () => {
             <img src={logo} alt="Iwona Loureiro Studio Logo" className="h-12 w-auto" />
           </Link>
           <nav className="hidden md:flex space-x-8 items-center">
-            <Link to="/" className="text-sm uppercase tracking-wider text-gray-600 hover:text-gray-900 transition-colors">
+            <Link to="/" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
+              isActive('/') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
+            }`}>
               {t('nav.home')}
             </Link>
-            <Link to="/projects" className="text-sm uppercase tracking-wider text-gray-600 hover:text-gray-900 transition-colors">
+            <Link to="/projects" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
+              isActive('/projects') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
+            }`}>
               {t('nav.projects')}
             </Link>
-            <Link to="/services" className="text-sm uppercase tracking-wider text-gray-600 hover:text-gray-900 transition-colors">
+            <Link to="/services" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
+              isActive('/services') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
+            }`}>
               {t('nav.services')}
             </Link>
-            <Link to="/about" className="text-sm uppercase tracking-wider text-gray-600 hover:text-gray-900 transition-colors">
+            <Link to="/about" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
+              isActive('/about') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
+            }`}>
               {t('nav.about')}
             </Link>
-            <Link to="/contact" className="text-sm uppercase tracking-wider text-gray-600 hover:text-gray-900 transition-colors">
+            <Link to="/contact" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
+              isActive('/contact') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
+            }`}>
               {t('nav.contact')}
             </Link>
           </nav>
           {/* Simple language switcher */}
           <div className="flex items-center space-x-2 ml-4">
             <button
-              className={`text-sm uppercase transition-colors ${i18n.language === 'en' ? 'font-bold underline text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}
+              className={`text-sm uppercase transition-all duration-300 hover:scale-105 ${i18n.language === 'en' ? 'font-bold underline text-gray-900 scale-105' : 'text-gray-600 hover:text-gray-900 hover:underline hover:underline-offset-4'}`}
               onClick={() => handleLanguageChange('en')}
               aria-label="Switch to English"
             >
@@ -66,7 +84,7 @@ const Header: React.FC = () => {
             </button>
             <span className="text-gray-400">/</span>
             <button
-              className={`text-sm uppercase transition-colors ${i18n.language === 'pl' ? 'font-bold underline text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}
+              className={`text-sm uppercase transition-all duration-300 hover:scale-105 ${i18n.language === 'pl' ? 'font-bold underline text-gray-900 scale-105' : 'text-gray-600 hover:text-gray-900 hover:underline hover:underline-offset-4'}`}
               onClick={() => handleLanguageChange('pl')}
               aria-label="Switch to Polish"
             >

@@ -11,16 +11,10 @@ import './styles/animations.css';
 import './i18n';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    // Simulate a loading delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
     // Mouse move event for custom cursor
     const handleMouseMove = (e: MouseEvent) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
@@ -29,7 +23,6 @@ function App() {
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
@@ -53,17 +46,6 @@ function App() {
             scale: isHovering ? 1.5 : 1
           }}
         />
-
-        {/* Loading screen */}
-        {isLoading && (
-          <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
-            <div className="loading-animation">
-              <div className="line"></div>
-              <div className="line"></div>
-              <div className="line"></div>
-            </div>
-          </div>
-        )}
 
         <Header />
 
