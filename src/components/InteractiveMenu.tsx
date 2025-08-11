@@ -1,5 +1,5 @@
 import React from 'react';
-import menuImage from '../assets/logov.mp4';
+import menuImage from '../assets/logo.mp4';
 
 const InteractiveMenu: React.FC = () => {
   return (
