@@ -1,15 +1,24 @@
 import React from 'react';
 import iwonaImg from '../images/iwona.jpg';
-import img0 from '../images/0.jpg';
-import img1 from '../images/1.jpg';
-import img2 from '../images/2.jpg';
-import img3 from '../images/3.jpg';
-import img4 from '../images/4.jpg';
-import img5 from '../images/5.jpg';
-import img6 from '../images/6.jpg';
-import img7 from '../images/7.jpg';
-import img8 from '../images/8.jpg';
+import img0 from '../images/_0.jpg';
+import img1 from '../images/_1.jpg';
+import img2 from '../images/_2.jpg';
+import img3 from '../images/_3.jpg';
+import img4 from '../images/_4.jpg';
+import img5 from '../images/_5.jpg';
+import img6 from '../images/_6.jpg';
+import img7 from '../images/_7.jpg';
+import img8 from '../images/_8.jpg';
 import img9 from '../images/9.jpg';
+import img10 from '../images/10.jpg';
+import img11 from '../images/11.jpg';
+import img12 from '../images/12.jpg';
+import img13 from '../images/13.jpg';
+import img14 from '../images/14.jpg';
+import img15 from '../images/15.jpg';
+import img16 from '../images/16.jpg';
+import img17 from '../images/17.jpg';
+
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -46,7 +55,7 @@ const About: React.FC = () => {
         <div className="mt-16">
           <h2 className="text-2xl font-light text-gray-900 text-center mb-8">{t('about.myArt')}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[img0, img1, img2, img3, img4, img5, img6, img7, img8, img9].map((img, idx) => (
+            {[img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17].map((img, idx) => (
               <button
                 key={idx}
                 type="button"

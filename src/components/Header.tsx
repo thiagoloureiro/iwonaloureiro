@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.jpg';
 import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Iwona Loureiro Studio Logo" className="h-12 w-auto" />
+            <img src={logo} alt="Iwona Loureiro Studio Logo" className="h-16 w-auto" />
           </Link>
           <nav className="hidden md:flex space-x-8 items-center">
             <Link to="/" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
