@@ -56,7 +56,6 @@ function App() {
                 <section className="relative grow flex items-center justify-center pt-8 md:pt-12 px-4">
                   <div className="container mx-auto flex flex-col items-center">
                     <div 
-                      className="interactive-container"
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
