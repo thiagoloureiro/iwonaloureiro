@@ -1,5 +1,4 @@
 import React from 'react';
-import iwonaImg from '../images/iwona.jpg';
 import img0 from '../images/_0.jpg';
 import img1 from '../images/_1.jpg';
 import img2 from '../images/_2.jpg';
@@ -88,14 +87,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <img
-              src={iwonaImg}
-              alt="Iwona Loureiro"
-              className="rounded-lg shadow-lg w-3/5 mx-auto"
-            />
-          </div>
+        <div className="max-w-4xl mx-auto mb-16">
           <div className="space-y-6">
             <h2 className="text-2xl font-light text-gray-900">{t('about.myStory')}</h2>
             <p className="text-gray-600">{t('about.story1')}</p>
