@@ -42,10 +42,12 @@ const Header: React.FC = () => {
       isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Iwona Loureiro Studio Logo" className="h-16 w-auto" />
-          </Link>
+        <div className="flex justify-center items-center h-16 relative">
+          {location.pathname !== '/' && (
+            <Link to="/" className="absolute left-0 flex items-center">
+              <img src={logo} alt="Iwona Loureiro Studio Logo" className="h-16 w-auto" />
+            </Link>
+          )}
           <nav className="hidden md:flex space-x-8 items-center">
             <Link to="/" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
               isActive('/') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
@@ -74,7 +76,7 @@ const Header: React.FC = () => {
             </Link>
           </nav>
           {/* Simple language switcher */}
-          <div className="flex items-center space-x-2 ml-4">
+          <div className="absolute right-0 flex items-center space-x-2">
             <button
               className={`text-sm uppercase transition-all duration-300 hover:scale-105 ${i18n.language === 'en' ? 'font-bold underline text-gray-900 scale-105' : 'text-gray-600 hover:text-gray-900 hover:underline hover:underline-offset-4'}`}
               onClick={() => handleLanguageChange('en')}
