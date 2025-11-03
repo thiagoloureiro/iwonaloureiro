@@ -41,6 +41,16 @@ import a15 from '../projects/02/15 with AI.jpg';
 import a16 from '../projects/02/16 with AI.jpg';
 import a17 from '../projects/02/17 with AI.jpg';
 
+import wiz01 from '../projects/03/wiz_01.jpg';
+import wiz02 from '../projects/03/wiz_02.jpg';
+import wiz03 from '../projects/03/wiz_03.jpg';
+import wiz04 from '../projects/03/wiz_04.jpg';
+import wiz05 from '../projects/03/wiz_05.jpg';
+import wiz06 from '../projects/03/wiz_06.jpg';
+import wiz07 from '../projects/03/wiz_07.jpg';
+import wiz08 from '../projects/03/wiz_08.jpg';
+import wiz09 from '../projects/03/wiz_09.jpg';
+
 const apartmentProjects = [
   {
     id: 'krakow-lwowska',
@@ -59,6 +69,14 @@ const homeProjects = [
     cover: a01, // first image from 02
     images: [
       a01, a02, a03, a04, a05, a06, a07, a08, a09, a10, a11, a12, a13, a14, a15, a16, a17
+    ],
+  },
+  {
+    id: 'jankowka',
+    name: 'Jankówka - Poland',
+    cover: wiz01, // first image from 03
+    images: [
+      wiz01, wiz02, wiz03, wiz04, wiz05, wiz06, wiz07, wiz08, wiz09
     ],
   },
 ];
@@ -166,11 +184,11 @@ const Projects: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {homeProjects.map((proj) => (
                   <div key={proj.id} className="cursor-pointer group relative overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl" onClick={() => setSelectedProject(proj.id)}>
-                    <div className="aspect-w-16 aspect-h-9">
-                      <img src={proj.cover} alt={proj.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                    <div className="absolute inset-0 bg-black/40 flex items-end p-6">
-                      <span className="text-white text-2xl font-light">{proj.name}</span>
+                    <div className="relative w-full aspect-[5/4]">
+                      <img src={proj.cover} alt={proj.name} className="absolute inset-0 object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-32 flex items-end p-6">
+                        <span className="text-white text-2xl font-light">{proj.name}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -181,11 +199,11 @@ const Projects: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {apartmentProjects.map((proj) => (
                   <div key={proj.id} className="cursor-pointer group relative overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl" onClick={() => setSelectedProject(proj.id)}>
-                    <div className="aspect-w-16 aspect-h-9">
-                      <img src={proj.cover} alt={proj.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                    <div className="absolute inset-0 bg-black/40 flex items-end p-6">
-                      <span className="text-white text-2xl font-light">{proj.name}</span>
+                    <div className="relative w-full aspect-[5/4]">
+                      <img src={proj.cover} alt={proj.name} className="absolute inset-0 object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-32 flex items-end p-6">
+                        <span className="text-white text-2xl font-light">{proj.name}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -196,7 +214,7 @@ const Projects: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                 {galleryImages.map((img, idx) => (
                   <div key={idx} className="group relative overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer" onClick={() => openModal(idx)}>
-                    <div className="aspect-w-16 aspect-h-9">
+                    <div className="aspect-[5/4]">
                       <img src={img} alt="Project" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
                     </div>
                   </div>
