@@ -50,6 +50,15 @@ import wiz06 from '../projects/03/wiz_06.jpg';
 import wiz07 from '../projects/03/wiz_07.jpg';
 import wiz08 from '../projects/03/wiz_08.jpg';
 import wiz09 from '../projects/03/wiz_09.jpg';
+import wiz10 from '../projects/03/wiz_10.jpg';
+import wiz11 from '../projects/03/wiz_11.jpg';
+import wiz12 from '../projects/03/wiz_12.jpg';
+import wiz13 from '../projects/03/wiz_13.jpg';
+import wiz14 from '../projects/03/wiz_14.jpg';
+import wiz15 from '../projects/03/wiz_15.jpg';
+import wiz16 from '../projects/03/wiz_16.jpg';
+import wiz17 from '../projects/03/wiz_17.jpg';
+import wiz18 from '../projects/03/wiz_18.jpg';
 
 const apartmentProjects = [
   {
@@ -76,7 +85,7 @@ const homeProjects = [
     name: 'Jankówka - Poland',
     cover: wiz01, // first image from 03
     images: [
-      wiz01, wiz02, wiz03, wiz04, wiz05, wiz06, wiz07, wiz08, wiz09
+      wiz01, wiz02, wiz03, wiz04, wiz05, wiz06, wiz07, wiz08, wiz09, wiz10, wiz11, wiz12, wiz13, wiz14, wiz15, wiz16, wiz17, wiz18
     ],
   },
 ];
