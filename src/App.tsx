@@ -49,18 +49,16 @@ function App() {
 
         <Header />
 
-        <main className="grow flex flex-col">
+        <main className="flex min-h-0 flex-1 flex-col">
           <PageTransition>
             <Routes>
               <Route path="/" element={
-                <section className="relative grow flex items-center justify-center pt-8 md:pt-12 px-4">
-                  <div className="container mx-auto flex flex-col items-center">
-                    <div 
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <InteractiveMenu />
-                    </div>
+                <section className="relative flex min-h-0 flex-1 items-center justify-center px-4">
+                  <div
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <InteractiveMenu />
                   </div>
                 </section>
               } />
