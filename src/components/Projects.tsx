@@ -60,6 +60,33 @@ import wiz16 from '../projects/03/wiz_16.jpg';
 import wiz17 from '../projects/03/wiz_17.jpg';
 import wiz18 from '../projects/03/wiz_18.jpg';
 
+import piasta01 from '../projects/04/WIZ_01.jpg';
+import piasta02 from '../projects/04/WIZ_02.jpg';
+import piasta03 from '../projects/04/WIZ_03.jpg';
+import piasta04 from '../projects/04/WIZ_04.jpg';
+import piasta05 from '../projects/04/WIZ_05.jpg';
+import piasta06 from '../projects/04/WIZ_06.jpg';
+import piasta07 from '../projects/04/WIZ_07.jpg';
+import piasta08 from '../projects/04/WIZ_08.jpg';
+import piasta09 from '../projects/04/WIZ_09.jpg';
+import piasta10 from '../projects/04/WIZ_10.jpg';
+import piasta11 from '../projects/04/WIZ_11.jpg';
+import piasta12 from '../projects/04/WIZ_12.jpg';
+import piasta13 from '../projects/04/WIZ_13.jpg';
+import piasta14 from '../projects/04/WIZ_14.jpg';
+import piasta15 from '../projects/04/WIZ_15.jpg';
+import piasta16 from '../projects/04/WIZ_16.jpg';
+import piasta17 from '../projects/04/WIZ_17.jpg';
+import piasta18 from '../projects/04/WIZ_18.jpg';
+import piasta19 from '../projects/04/WIZ_19.jpg';
+import piasta20 from '../projects/04/WIZ_20.jpg';
+import piasta21 from '../projects/04/WIZ_21.jpg';
+
+import siewna01 from '../projects/05/WIZ_01.jpg';
+import siewna02 from '../projects/05/WIZ_02.jpg';
+import siewna03 from '../projects/05/WIZ_03.jpg';
+import siewna04 from '../projects/05/WIZ_04.jpg';
+
 const apartmentProjects = [
   {
     id: 'krakow-lwowska',
@@ -68,6 +95,21 @@ const apartmentProjects = [
     images: [
       w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14, w15, w16, w17, w18, w19, w20, w21, w22
     ],
+  },
+  {
+    id: 'krakow-piasta',
+    name: 'Kraków / Piasta - Poland',
+    cover: piasta01,
+    images: [
+      piasta01, piasta02, piasta03, piasta04, piasta05, piasta06, piasta07, piasta08, piasta09, piasta10,
+      piasta11, piasta12, piasta13, piasta14, piasta15, piasta16, piasta17, piasta18, piasta19, piasta20, piasta21,
+    ],
+  },
+  {
+    id: 'krakow-siewna',
+    name: 'Kraków / Siewna - Poland',
+    cover: siewna01,
+    images: [siewna01, siewna02, siewna03, siewna04],
   },
 ];
 
