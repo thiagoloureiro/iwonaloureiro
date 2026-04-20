@@ -202,6 +202,17 @@ const Projects: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [modalOpen, closeModal, showPrev, showNext]);
 
+  const activeSubProject =
+    selectedProject && selectedCategory === 'Homes'
+      ? homeProjects.find((p) => p.id === selectedProject) ?? null
+      : selectedProject && selectedCategory === 'Apartments'
+        ? apartmentProjects.find((p) => p.id === selectedProject) ?? null
+        : null;
+
+  const projectDescription = activeSubProject
+    ? t(`projects.descriptions.${activeSubProject.id}`).trim()
+    : '';
+
   return (
     <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -262,7 +273,18 @@ const Projects: React.FC = () => {
             )}
             {/* Gallery for selected subproject or All */}
             {(selectedCategory === 'All' || selectedProject) && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="mt-8 space-y-10">
+                {activeSubProject && (
+                  <div className="max-w-3xl">
+                    <h2 className="text-2xl font-light tracking-tight text-gray-900 mb-4">{activeSubProject.name}</h2>
+                    {projectDescription && (
+                      <div className="text-gray-600 text-sm sm:text-base leading-relaxed whitespace-pre-line font-light">
+                        {projectDescription}
+                      </div>
+                    )}
+                  </div>
+                )}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {galleryImages.map((img, idx) => (
                   <div key={idx} className="group relative overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer" onClick={() => openModal(idx)}>
                     <div className="aspect-[5/4]">
@@ -273,6 +295,7 @@ const Projects: React.FC = () => {
                 {galleryImages.length === 0 && (
                   <div className="col-span-full text-center text-gray-500 py-12">{t('projects.noImages')}</div>
                 )}
+                </div>
               </div>
             )}
           </div>
