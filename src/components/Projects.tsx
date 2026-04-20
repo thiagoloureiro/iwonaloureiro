@@ -132,6 +132,35 @@ const homeProjects = [
   },
 ];
 
+const PROJECT_DESC_FIELD =
+  /^(Typ|Type|Zakres|Scope|Strefa|Zone|Idea|Concept):\s*([\s\S]*)$/;
+
+const FormattedProjectDescription: React.FC<{ text: string }> = ({ text }) => {
+  const blocks = text.trim().split(/\n\n+/);
+  return (
+    <div className="space-y-4 sm:space-y-5">
+      {blocks.map((block, i) => {
+        const m = block.match(PROJECT_DESC_FIELD);
+        if (!m) {
+          return (
+            <p key={i} className="text-gray-600 text-sm sm:text-base leading-relaxed font-light whitespace-pre-line">
+              {block}
+            </p>
+          );
+        }
+        const label = m[1];
+        const value = m[2].trim();
+        return (
+          <div key={i} className="border-l border-gray-100 pl-3 sm:pl-4">
+            <p className="mb-1 text-xs font-medium text-gray-500">{label}</p>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed font-light">{value}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const Projects: React.FC = () => {
   const { t } = useTranslation();
   const menuOptions = [
@@ -180,6 +209,11 @@ const Projects: React.FC = () => {
   }, []);
 
   const closeModal = useCallback(() => {
+    setModalOpen(false);
+  }, []);
+
+  const backToCategoryProjects = useCallback(() => {
+    setSelectedProject(null);
     setModalOpen(false);
   }, []);
 
@@ -273,15 +307,28 @@ const Projects: React.FC = () => {
             )}
             {/* Gallery for selected subproject or All */}
             {(selectedCategory === 'All' || selectedProject) && (
-              <div className="mt-8 space-y-10">
+              <div className="space-y-10">
                 {activeSubProject && (
                   <div className="max-w-3xl">
-                    <h2 className="text-2xl font-light tracking-tight text-gray-900 mb-4">{activeSubProject.name}</h2>
-                    {projectDescription && (
-                      <div className="text-gray-600 text-sm sm:text-base leading-relaxed whitespace-pre-line font-light">
-                        {projectDescription}
-                      </div>
-                    )}
+                    <div className="mb-4 flex items-center gap-2 sm:gap-3">
+                      {selectedProject && (selectedCategory === 'Homes' || selectedCategory === 'Apartments') && (
+                        <button
+                          type="button"
+                          onClick={backToCategoryProjects}
+                          aria-label={t('projects.backToCategory', {
+                            category:
+                              selectedCategory === 'Apartments' ? t('projects.apartments') : t('projects.homes'),
+                          })}
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-2xl font-light leading-none text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 focus-visible:ring-offset-2"
+                        >
+                          ←
+                        </button>
+                      )}
+                      <h2 className="min-w-0 flex-1 text-2xl font-light leading-tight tracking-tight text-gray-900">
+                        {activeSubProject.name}
+                      </h2>
+                    </div>
+                    {projectDescription && <FormattedProjectDescription text={projectDescription} />}
                   </div>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
