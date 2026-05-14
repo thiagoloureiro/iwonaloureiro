@@ -1,8 +1,26 @@
 import React from 'react';
-import { Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/iwona-loureiro-b9ba4b3b/';
+
+const LinkedInIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
@@ -34,7 +52,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <Linkedin className="w-6 h-6 text-gray-900 mt-1 shrink-0" />
+                <LinkedInIcon className="w-6 h-6 text-gray-900 mt-1 shrink-0" />
                 <div>
                   <h3 className="text-lg font-light text-gray-900">{t('contact.linkedinLabel')}</h3>
                   <a
