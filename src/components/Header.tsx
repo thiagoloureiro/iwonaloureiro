@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/logo.jpg';
 import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
@@ -63,12 +62,6 @@ const Header: React.FC = () => {
 
           {/* Desktop layout */}
           <div className="hidden md:flex justify-center items-center w-full relative">
-            {location.pathname !== '/' && (
-              <Link to="/" className="absolute left-0 flex items-center">
-                <img src={logo} alt="Iwona Loureiro Studio Logo" className="h-16 w-auto" />
-              </Link>
-            )}
-            
             <nav className="flex space-x-8 items-center">
             <Link to="/" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
               isActive('/') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
