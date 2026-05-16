@@ -9,7 +9,7 @@ const InteractiveMenu: React.FC = () => {
         autoPlay
         muted
         playsInline
-        className="mx-auto block h-auto max-h-[min(84vh,760px)] w-auto max-w-[min(92vw,56rem)] object-contain"
+        className="mx-auto block h-auto max-h-[min(84vh,760px)] w-auto max-w-[min(92vw,56rem)] object-contain [clip-path:inset(0.85%_0_0_0.85%)]"
       />
     </div>
   );

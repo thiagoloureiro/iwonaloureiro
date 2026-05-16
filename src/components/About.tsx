@@ -17,6 +17,8 @@ import img14 from '../images/14.jpg';
 import img15 from '../images/15.jpg';
 import img16 from '../images/16.jpg';
 import img17 from '../images/17.jpg';
+import img18 from '../images/papayas.png';
+import img19 from '../images/botanical-leaves.png';
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +29,7 @@ const About: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const { t } = useTranslation();
 
-  const images = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17];
+  const images = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19];
 
   const openModal = (img: string) => {
     const index = images.indexOf(img);
