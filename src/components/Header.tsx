@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import logoFull from '../assets/logofull.png';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,16 +42,29 @@ const Header: React.FC = () => {
     return location.pathname.startsWith(path);
   };
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-16 relative">
+      <div className="px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center h-16 relative">
+          {!isHomePage && (
+            <Link to="/" className="absolute left-0 z-10 flex items-center shrink-0">
+              <img
+                src={logoFull}
+                alt="Iwona Loureiro"
+                className="h-[1.6rem] w-auto max-w-[min(52vw,176px)] object-contain object-left md:h-[2.4rem] md:max-w-none"
+              />
+            </Link>
+          )}
+
           {/* Mobile layout */}
-          <div className="md:hidden flex justify-start items-center w-full">
+          <div className={`md:hidden flex items-center w-full ${!isHomePage ? 'justify-end' : 'justify-start'}`}>
             <button
-              className="flex flex-col justify-center items-center w-8 h-8 space-y-1"
+              className="flex flex-col justify-center items-center w-8 h-8 shrink-0 space-y-1"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
             >
@@ -108,6 +122,7 @@ const Header: React.FC = () => {
               PL
             </button>
             </div>
+          </div>
           </div>
         </div>
       </div>

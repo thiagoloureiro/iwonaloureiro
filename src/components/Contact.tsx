@@ -44,10 +44,10 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="text-lg font-light text-gray-900">{t('contact.emailLabel')}</h3>
                   <a
-                    href="mailto:iwonaloureiro@outlook.com"
+                    href="mailto:il.studio@outlook.com"
                     className="text-gray-600 hover:text-gray-900 transition-colors"
                   >
-                    iwonaloureiro@outlook.com
+                    il.studio@outlook.com
                   </a>
                 </div>
               </div>
