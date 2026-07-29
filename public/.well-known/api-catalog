@@ -1,0 +1,33 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://ilstudio.design/.well-known/api-catalog",
+      "item": [
+        {
+          "href": "https://ilstudio.design/api/v1"
+        }
+      ]
+    },
+    {
+      "anchor": "https://ilstudio.design/api/v1",
+      "service-desc": [
+        {
+          "href": "https://ilstudio.design/openapi/site-api.yaml",
+          "type": "application/yaml"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://ilstudio.design/docs/api.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://ilstudio.design/api/v1/health",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

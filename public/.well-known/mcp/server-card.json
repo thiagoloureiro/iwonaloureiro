@@ -1,0 +1,29 @@
+{
+  "serverInfo": {
+    "name": "IL Studio WebMCP",
+    "version": "1.0.0"
+  },
+  "transport": {
+    "type": "webmcp",
+    "endpoint": "https://ilstudio.design/"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "get_contact_info",
+      "description": "Get IL Studio contact email and LinkedIn profile"
+    },
+    {
+      "name": "list_services",
+      "description": "List interior design services offered by IL Studio"
+    },
+    {
+      "name": "navigate_to",
+      "description": "Navigate to a page on the IL Studio website"
+    }
+  ]
+}

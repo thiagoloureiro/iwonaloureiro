@@ -1,0 +1,18 @@
+; DNS for AI Discovery (DNS-AID) records for ilstudio.design
+; Deploy at your DNS provider and enable DNSSEC signing.
+; See: https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/
+
+; Agent discovery index — points to the site API catalog
+_index._agents.ilstudio.design. 3600 IN SVCB 1 ilstudio.design. \
+  alpn="h3,h2" port=443 mandatory=alpn,port
+
+; Agent-to-agent / WebMCP discovery endpoint
+_a2a._agents.ilstudio.design. 3600 IN SVCB 1 ilstudio.design. \
+  alpn="h3,h2" port=443 mandatory=alpn,port
+
+; Optional: HTTPS records (alternative to SVCB for HTTPS-only discovery)
+_index._agents.ilstudio.design. 3600 IN HTTPS 1 ilstudio.design. \
+  alpn="h3,h2" port=443 mandatory=alpn,port
+
+_a2a._agents.ilstudio.design. 3600 IN HTTPS 1 ilstudio.design. \
+  alpn="h3,h2" port=443 mandatory=alpn,port

@@ -1,0 +1,6 @@
+{
+  "resource": "https://ilstudio.design/api/v1",
+  "authorization_servers": ["https://ilstudio.design"],
+  "scopes_supported": ["site:read"],
+  "bearer_methods_supported": ["header"]
+}

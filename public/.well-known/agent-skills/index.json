@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "site-contact",
+      "type": "skill-md",
+      "description": "Retrieve public contact information for IL Studio",
+      "url": "https://ilstudio.design/.well-known/agent-skills/site-contact/SKILL.md",
+      "digest": "sha256:c8d1fa34effa59518bcb3b17c8268198ed4646b3a06bc4baa79fdf3d358900a4"
+    },
+    {
+      "name": "site-navigation",
+      "type": "skill-md",
+      "description": "Navigate IL Studio website pages",
+      "url": "https://ilstudio.design/.well-known/agent-skills/site-navigation/SKILL.md",
+      "digest": "sha256:af8d5b94877e847a300f79fec1da3edb221fab5a5d8fb3f8c7d39ef6a72bb8bf"
+    },
+    {
+      "name": "site-services",
+      "type": "skill-md",
+      "description": "List interior design services offered by IL Studio",
+      "url": "https://ilstudio.design/.well-known/agent-skills/site-services/SKILL.md",
+      "digest": "sha256:856cb28b36bf91153aee25b84ab8941e0c8ad485a09f03897253f774d0c4b052"
+    }
+  ]
+}

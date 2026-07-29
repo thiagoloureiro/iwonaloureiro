@@ -1,0 +1,20 @@
+{
+  "issuer": "https://ilstudio.design",
+  "authorization_endpoint": "https://ilstudio.design/.well-known/oauth-authorization-server",
+  "token_endpoint": "https://ilstudio.design/api/v1/token",
+  "jwks_uri": "https://ilstudio.design/.well-known/jwks.json",
+  "registration_endpoint": "https://ilstudio.design/.well-known/oauth-authorization-server",
+  "grant_types_supported": ["client_credentials", "urn:ietf:params:oauth:grant-type:token-exchange"],
+  "response_types_supported": ["token"],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "scopes_supported": ["site:read"],
+  "agent_auth": {
+    "skill": "https://ilstudio.design/.well-known/agent-skills/site-contact/SKILL.md",
+    "register_uri": "https://ilstudio.design/.well-known/oauth-authorization-server",
+    "identity_types_supported": ["anonymous"],
+    "anonymous": {
+      "credential_types_supported": ["none"],
+      "claim_uri": "https://ilstudio.design/auth.md"
+    }
+  }
+}

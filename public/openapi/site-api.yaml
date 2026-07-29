@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: IL Studio Site API
+  version: 1.0.0
+  description: Read-only public API for IL Studio agent discovery.
+servers:
+  - url: https://ilstudio.design/api/v1
+paths:
+  /health:
+    get:
+      summary: API health check
+      operationId: getHealth
+      responses:
+        "200":
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  service:
+                    type: string
+                  version:
+                    type: string
+  /contact:
+    get:
+      summary: Public contact information
+      operationId: getContact
+      responses:
+        "200":
+          description: Contact details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studio:
+                    type: string
+                  email:
+                    type: string
+                    format: email
+                  linkedin:
+                    type: string
+                    format: uri
+                  website:
+                    type: string
+                    format: uri
