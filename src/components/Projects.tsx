@@ -81,6 +81,7 @@ import piasta18 from '../projects/04/WIZ_18.jpg';
 import piasta19 from '../projects/04/WIZ_19.jpg';
 import piasta20 from '../projects/04/WIZ_20.jpg';
 import piasta21 from '../projects/04/WIZ_21.jpg';
+import piasta22 from '../projects/04/WIZ_22.jpg';
 
 import siewna01 from '../projects/05/WIZ_01.jpg';
 import siewna02 from '../projects/05/WIZ_02.jpg';
@@ -102,7 +103,7 @@ const apartmentProjects = [
     cover: piasta01,
     images: [
       piasta01, piasta02, piasta03, piasta04, piasta05, piasta06, piasta07, piasta08, piasta09, piasta10,
-      piasta11, piasta12, piasta13, piasta14, piasta15, piasta16, piasta17, piasta18, piasta19, piasta20, piasta21,
+      piasta11, piasta12, piasta13, piasta14, piasta15, piasta16, piasta17, piasta18, piasta19, piasta20, piasta21, piasta22,
     ],
   },
   {
