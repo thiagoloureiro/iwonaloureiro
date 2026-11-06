@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: "w", "Times New Roman", serif;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --color-paper: #f6f4f0;
   --color-ink: #1a1916;
   --color-muted: #6e685f;
