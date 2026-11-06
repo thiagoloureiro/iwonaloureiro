@@ -58,7 +58,6 @@ import wiz14 from '../projects/03/wiz_14.jpg';
 import wiz15 from '../projects/03/wiz_15.jpg';
 import wiz16 from '../projects/03/wiz_16.jpg';
 import wiz17 from '../projects/03/wiz_17.jpg';
-import wiz18 from '../projects/03/wiz_18.jpg';
 
 import piasta01 from '../projects/04/WIZ_01.jpg';
 import piasta02 from '../projects/04/WIZ_02.jpg';
@@ -128,7 +127,7 @@ const homeProjects = [
     name: 'Jankówka - Poland',
     cover: wiz01, // first image from 03
     images: [
-      wiz01, wiz02, wiz03, wiz04, wiz05, wiz06, wiz07, wiz08, wiz09, wiz10, wiz11, wiz12, wiz13, wiz14, wiz15, wiz16, wiz17, wiz18
+      wiz01, wiz02, wiz03, wiz04, wiz05, wiz06, wiz07, wiz08, wiz09, wiz10, wiz11, wiz12, wiz13, wiz14, wiz15, wiz16, wiz17
     ],
   },
 ];
