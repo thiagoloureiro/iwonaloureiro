@@ -22,6 +22,7 @@ import img19 from '../images/botanical-leaves.png';
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import PageHeader from './PageHeader';
 
 const About: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -81,74 +82,68 @@ const About: React.FC = () => {
   }, [modalOpen, currentImageIndex]);
 
   return (
-    <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-3xl font-light tracking-tight text-gray-900 mb-4">{t('about.title')}</h1>
-        </div>
-
-        {/* Main Content */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="space-y-6">
-            <h2 className="text-2xl font-light text-gray-900">{t('about.myStory')}</h2>
-            <p className="text-gray-600">{t('about.story1')}</p>
-            <p className="text-gray-600">{t('about.story2')}</p>
+    <div className="px-5 pb-20 pt-28 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <PageHeader index="03" title={t('about.title')} compact />
+            <p className="text-[11px] uppercase tracking-[0.28em] text-muted">{t('about.myStory')}</p>
+          </div>
+          <div className="space-y-7 lg:col-span-7 lg:col-start-6">
+            <p className="text-[16px] font-light leading-relaxed text-ink/80">{t('about.story1')}</p>
+            <p className="text-[16px] font-light leading-relaxed text-ink/80">{t('about.story2')}</p>
           </div>
         </div>
 
-        {/* My Art Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-light text-gray-900 text-center mb-8">{t('about.myArt')}</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="mt-24 border-t border-line pt-10">
+          <div className="mb-8 flex items-baseline justify-between gap-6">
+            <h2 className="font-display text-4xl text-ink md:text-5xl">{t('about.myArt')}</h2>
+            <p className="text-[11px] uppercase tracking-[0.22em] text-muted">{images.length}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
             {images.map((img, idx) => (
               <button
                 key={idx}
                 type="button"
-                className="focus:outline-none"
+                className="group aspect-[4/5] overflow-hidden bg-line focus:outline-none"
                 onClick={() => openModal(img)}
               >
                 <img
                   src={img}
                   alt={`Art ${idx + 1}`}
-                  className="shadow-md w-full h-auto cursor-pointer"
+                  className="h-full w-full cursor-pointer object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </button>
             ))}
           </div>
           {/* Modal for full-size image */}
           {modalOpen && modalImg && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70" onClick={() => setModalOpen(false)}>
-              <div className="relative max-w-3xl w-full flex justify-center" onClick={e => e.stopPropagation()}>
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90" onClick={() => setModalOpen(false)}>
+              <div className="relative flex w-full max-w-5xl justify-center px-4" onClick={e => e.stopPropagation()}>
                 <button
-                  className="absolute top-2 right-2 text-white text-2xl font-bold bg-black bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-80 z-10"
+                  className="absolute -top-12 right-4 text-2xl font-light text-paper"
                   onClick={() => setModalOpen(false)}
                   aria-label="Close"
                 >
                   &times;
                 </button>
-                
-                {/* Navigation arrows */}
                 <button
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-80 z-10"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 text-3xl font-light text-paper"
                   onClick={() => navigateImage('prev')}
                   aria-label="Previous image"
                 >
-                  ‹
+                  &#8592;
                 </button>
                 <button
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl font-bold bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-80 z-10"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-3xl font-light text-paper"
                   onClick={() => navigateImage('next')}
                   aria-label="Next image"
                 >
-                  ›
+                  &#8594;
                 </button>
-                
-                <img src={modalImg} alt="Full size art" className="max-h-[80vh] w-auto rounded shadow-lg" />
-                
-                {/* Image counter */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-3 py-1 rounded text-sm">
-                  {currentImageIndex + 1} / {images.length}
+                <img src={modalImg} alt="Full size art" className="max-h-[82vh] w-auto" />
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[11px] uppercase tracking-[0.22em] text-paper/80">
+                  {String(currentImageIndex + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
                 </div>
               </div>
             </div>

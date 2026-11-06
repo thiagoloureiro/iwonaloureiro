@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import PageHeader from './PageHeader';
 import w1 from '../projects/01/w1.jpg';
 import w2 from '../projects/01/w2.jpg';
 import w3 from '../projects/01/w3.jpg';
@@ -143,7 +144,7 @@ const FormattedProjectDescription: React.FC<{ text: string }> = ({ text }) => {
         const m = block.match(PROJECT_DESC_FIELD);
         if (!m) {
           return (
-            <p key={i} className="text-gray-600 text-sm sm:text-base leading-relaxed font-light whitespace-pre-line">
+            <p key={i} className="whitespace-pre-line text-[15px] font-light leading-relaxed text-muted">
               {block}
             </p>
           );
@@ -151,9 +152,9 @@ const FormattedProjectDescription: React.FC<{ text: string }> = ({ text }) => {
         const label = m[1];
         const value = m[2].trim();
         return (
-          <div key={i} className="border-l border-gray-100 pl-3 sm:pl-4">
-            <p className="mb-1 text-xs font-medium text-gray-500">{label}</p>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed font-light">{value}</p>
+          <div key={i} className="border-l border-line pl-4">
+            <p className="mb-1.5 text-[11px] font-medium uppercase tracking-[0.22em] text-muted">{label}</p>
+            <p className="text-[15px] font-light leading-relaxed text-ink/80">{value}</p>
           </div>
         );
       })}
@@ -247,25 +248,48 @@ const Projects: React.FC = () => {
     ? t(`projects.descriptions.${activeSubProject.id}`).trim()
     : '';
 
+  const projectCards = (projects: typeof homeProjects) => (
+    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2">
+      {projects.map((proj, index) => (
+        <button
+          key={proj.id}
+          type="button"
+          className="group text-left"
+          onClick={() => setSelectedProject(proj.id)}
+        >
+          <div className="relative aspect-[5/4] overflow-hidden bg-line">
+            <img
+              src={proj.cover}
+              alt={proj.name}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            />
+          </div>
+          <div className="mt-3 flex items-baseline justify-between gap-4">
+            <span className="font-display text-2xl text-ink">{proj.name}</span>
+            <span className="text-[11px] tracking-[0.18em] text-muted">{String(index + 1).padStart(2, '0')}</span>
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+
   return (
-    <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-3xl font-light tracking-tight text-gray-900 mb-2">{t('projects.title')}</h1>
-        </div>
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Left Menu */}
-          <aside className="md:w-1/4 w-full mb-8 md:mb-0">
-            <nav className="sticky top-24">
-              <ul className="space-y-2">
-                {menuOptions.map((option) => (
-                  <li key={option.key}>
+    <div className="px-5 pb-20 pt-28 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <PageHeader index="01" title={t('projects.title')} />
+        <div className="flex flex-col gap-10 md:flex-row md:gap-16">
+          <aside className="w-full md:w-44 md:shrink-0">
+            <nav className="sticky top-28 border-t border-line">
+              <ul>
+                {menuOptions.map((option, index) => (
+                  <li key={option.key} className="border-b border-line">
                     <button
-                      className={`w-full text-left font-medium transition-colors focus:outline-none
-                        ${selectedCategory === option.key ? 'text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'}`}
-                      style={{ background: 'none', border: 'none', padding: 0 }}
+                      className={`flex w-full items-baseline gap-3 py-3 text-left text-[12px] uppercase tracking-[0.18em] transition-colors focus:outline-none ${
+                        selectedCategory === option.key ? 'text-ink' : 'text-muted hover:text-ink'
+                      }`}
                       onClick={() => setSelectedCategory(option.key as 'All' | 'Homes' | 'Apartments')}
                     >
+                      <span className="text-[10px] tracking-[0.16em]">{String(index + 1).padStart(2, '0')}</span>
                       {option.label}
                     </button>
                   </li>
@@ -273,74 +297,49 @@ const Projects: React.FC = () => {
               </ul>
             </nav>
           </aside>
-          {/* Projects Grid or Submenu */}
-          <div className="md:w-3/4 w-full">
-            {/* Submenu for Homes */}
-            {selectedCategory === 'Homes' && !selectedProject && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {homeProjects.map((proj) => (
-                  <div key={proj.id} className="cursor-pointer group relative overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl" onClick={() => setSelectedProject(proj.id)}>
-                    <div className="relative w-full aspect-[5/4]">
-                      <img src={proj.cover} alt={proj.name} className="absolute inset-0 object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-32 flex items-end p-6">
-                        <span className="text-white text-2xl font-light">{proj.name}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-            {/* Submenu for Apartments */}
-            {selectedCategory === 'Apartments' && !selectedProject && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {apartmentProjects.map((proj) => (
-                  <div key={proj.id} className="cursor-pointer group relative overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl" onClick={() => setSelectedProject(proj.id)}>
-                    <div className="relative w-full aspect-[5/4]">
-                      <img src={proj.cover} alt={proj.name} className="absolute inset-0 object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-32 flex items-end p-6">
-                        <span className="text-white text-2xl font-light">{proj.name}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-            {/* Gallery for selected subproject or All */}
+          <div className="min-w-0 flex-1">
+            {selectedCategory === 'Homes' && !selectedProject && projectCards(homeProjects)}
+            {selectedCategory === 'Apartments' && !selectedProject && projectCards(apartmentProjects)}
             {(selectedCategory === 'All' || selectedProject) && (
-              <div className="space-y-10">
+              <div className="space-y-12">
                 {activeSubProject && (
                   <div className="max-w-3xl">
-                    <div className="mb-4 flex items-center gap-2 sm:gap-3">
-                      {selectedProject && (selectedCategory === 'Homes' || selectedCategory === 'Apartments') && (
-                        <button
-                          type="button"
-                          onClick={backToCategoryProjects}
-                          aria-label={t('projects.backToCategory', {
-                            category:
-                              selectedCategory === 'Apartments' ? t('projects.apartments') : t('projects.homes'),
-                          })}
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-2xl font-light leading-none text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 focus-visible:ring-offset-2"
-                        >
-                          ←
-                        </button>
-                      )}
-                      <h2 className="min-w-0 flex-1 text-2xl font-light leading-tight tracking-tight text-gray-900">
-                        {activeSubProject.name}
-                      </h2>
-                    </div>
-                    {projectDescription && <FormattedProjectDescription text={projectDescription} />}
+                    {selectedProject && (selectedCategory === 'Homes' || selectedCategory === 'Apartments') && (
+                      <button
+                        type="button"
+                        onClick={backToCategoryProjects}
+                        aria-label={t('projects.backToCategory', {
+                          category:
+                            selectedCategory === 'Apartments' ? t('projects.apartments') : t('projects.homes'),
+                        })}
+                        className="mb-6 text-[11px] uppercase tracking-[0.22em] text-muted transition-colors hover:text-ink"
+                      >
+                        ← {selectedCategory === 'Apartments' ? t('projects.apartments') : t('projects.homes')}
+                      </button>
+                    )}
+                    <h2 className="font-display text-4xl leading-none text-ink md:text-5xl">
+                      {activeSubProject.name}
+                    </h2>
+                    {projectDescription && (
+                      <div className="mt-8">
+                        <FormattedProjectDescription text={projectDescription} />
+                      </div>
+                    )}
                   </div>
                 )}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
                 {galleryImages.map((img, idx) => (
-                  <div key={idx} className="group relative overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer" onClick={() => openModal(idx)}>
-                    <div className="aspect-[5/4]">
-                      <img src={img} alt="Project" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                  </div>
+                  <button
+                    key={idx}
+                    type="button"
+                    className="group relative aspect-[5/4] overflow-hidden bg-line"
+                    onClick={() => openModal(idx)}
+                  >
+                    <img src={img} alt="Project" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+                  </button>
                 ))}
                 {galleryImages.length === 0 && (
-                  <div className="col-span-full text-center text-gray-500 py-12">{t('projects.noImages')}</div>
+                  <div className="col-span-full py-12 text-center text-sm text-muted">{t('projects.noImages')}</div>
                 )}
                 </div>
               </div>
@@ -348,14 +347,16 @@ const Projects: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Modal Popup */}
       {modalOpen && galleryImages[modalIndex] && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={closeModal}>
-          <div className="relative max-w-5xl w-full mx-4" style={{ maxWidth: '1200px' }} onClick={e => e.stopPropagation()}>
-            <button className="absolute top-4 right-4 text-white text-3xl font-light" onClick={closeModal} aria-label="Close">&times;</button>
-            <button className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-3xl px-2" onClick={showPrev} aria-label="Previous">&#8592;</button>
-            <img src={galleryImages[modalIndex]} alt="Project" className="w-full max-h-[96vh] object-contain shadow-lg" />
-            <button className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-3xl px-2" onClick={showNext} aria-label="Next">&#8594;</button>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/92" onClick={closeModal}>
+          <div className="relative mx-4 w-full max-w-6xl" onClick={e => e.stopPropagation()}>
+            <button className="absolute -top-10 right-0 text-2xl font-light text-paper" onClick={closeModal} aria-label="Close">&times;</button>
+            <button className="absolute left-0 top-1/2 -translate-y-1/2 px-2 text-2xl font-light text-paper" onClick={showPrev} aria-label="Previous">&#8592;</button>
+            <img src={galleryImages[modalIndex]} alt="Project" className="max-h-[86vh] w-full object-contain" />
+            <button className="absolute right-0 top-1/2 -translate-y-1/2 px-2 text-2xl font-light text-paper" onClick={showNext} aria-label="Next">&#8594;</button>
+            <p className="mt-4 text-center text-[11px] uppercase tracking-[0.22em] text-paper/70">
+              {String(modalIndex + 1).padStart(2, '0')} / {String(galleryImages.length).padStart(2, '0')}
+            </p>
           </div>
         </div>
       )}

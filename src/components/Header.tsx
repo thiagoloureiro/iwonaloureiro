@@ -44,159 +44,107 @@ const Header: React.FC = () => {
 
   const isHomePage = location.pathname === '/';
 
+  const navLinkClass = (path: string) =>
+    `text-[11px] uppercase tracking-[0.22em] transition-colors duration-300 ${
+      isActive(path) ? 'text-ink' : 'text-muted hover:text-ink'
+    }`;
+
+  const links = [
+    { to: '/', label: t('nav.home') },
+    { to: '/projects', label: t('nav.projects') },
+    { to: '/services', label: t('nav.services') },
+    { to: '/about', label: t('nav.about') },
+    { to: '/contact', label: t('nav.contact') },
+  ];
+
+  const langButtonClass = (lng: string) =>
+    `text-[11px] uppercase tracking-[0.18em] transition-colors duration-300 ${
+      i18n.language === lng ? 'text-ink' : 'text-muted hover:text-ink'
+    }`;
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+      isScrolled || isMobileMenuOpen ? 'bg-paper/90 backdrop-blur-md' : 'bg-transparent'
     }`}>
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center h-16 relative">
+      <div className={`transition-colors duration-300 ${isScrolled ? 'border-b border-line' : 'border-b border-transparent'}`}>
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="relative flex h-16 items-center md:grid md:h-[4.5rem] md:grid-cols-[1fr_auto_1fr]">
           {!isHomePage && (
-            <Link to="/" className="absolute left-0 z-10 flex items-center shrink-0">
+            <Link to="/" className="z-10 flex shrink-0 items-center md:justify-self-start">
               <img
                 src={logoFull}
                 alt="Iwona Loureiro"
-                className="h-[1.6rem] w-auto max-w-[min(52vw,176px)] object-contain object-left md:h-[2.4rem] md:max-w-none"
+                className="h-[1.35rem] w-auto max-w-[min(46vw,150px)] object-contain object-left md:h-[1.4rem] md:max-w-[140px] lg:h-[1.7rem] lg:max-w-[190px]"
               />
             </Link>
           )}
 
-          {/* Mobile layout */}
-          <div className={`md:hidden flex items-center w-full ${!isHomePage ? 'justify-end' : 'justify-start'}`}>
+          <div className={`flex w-full items-center md:hidden ${!isHomePage ? 'justify-end' : 'justify-start'}`}>
             <button
-              className="flex flex-col justify-center items-center w-8 h-8 shrink-0 space-y-1"
+              className="flex h-8 w-8 shrink-0 flex-col items-center justify-center space-y-1.5"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
             >
-              <span className={`block w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-              <span className={`block w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+              <span className={`block h-px w-5 bg-ink transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-[3.5px] rotate-45' : ''}`}></span>
+              <span className={`block h-px w-5 bg-ink transition-all duration-300 ${isMobileMenuOpen ? '-translate-y-[3.5px] -rotate-45' : ''}`}></span>
             </button>
           </div>
 
-          {/* Desktop layout */}
-          <div className="hidden md:flex justify-center items-center w-full relative">
-            <nav className="flex space-x-8 items-center">
-            <Link to="/" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
-              isActive('/') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
-            }`}>
-              {t('nav.home')}
-            </Link>
-            <Link to="/projects" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
-              isActive('/projects') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
-            }`}>
-              {t('nav.projects')}
-            </Link>
-            <Link to="/services" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
-              isActive('/services') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
-            }`}>
-              {t('nav.services')}
-            </Link>
-            <Link to="/about" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
-              isActive('/about') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
-            }`}>
-              {t('nav.about')}
-            </Link>
-            <Link to="/contact" className={`text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:underline hover:underline-offset-4 ${
-              isActive('/contact') ? 'text-gray-900 scale-105 underline underline-offset-4' : 'text-gray-600 hover:text-gray-900'
-            }`}>
-              {t('nav.contact')}
-            </Link>
+          <div className="hidden items-center justify-center md:col-start-2 md:flex">
+            <nav className="flex items-center gap-4 lg:gap-8">
+              {links.map((link) => (
+                <Link key={link.to} to={link.to} className={navLinkClass(link.to)}>
+                  {link.label}
+                </Link>
+              ))}
             </nav>
-            
-            {/* Language switcher - Desktop */}
-            <div className="absolute right-0 flex items-center space-x-2">
+          </div>
+
+          <div className="col-start-3 hidden items-center justify-self-end gap-2 md:flex">
             <button
-              className={`text-sm uppercase transition-all duration-300 hover:scale-105 ${i18n.language === 'en' ? 'font-bold underline text-gray-900 scale-105' : 'text-gray-600 hover:text-gray-900 hover:underline hover:underline-offset-4'}`}
+              className={langButtonClass('en')}
               onClick={() => handleLanguageChange('en')}
               aria-label="Switch to English"
             >
               EN
             </button>
-            <span className="text-gray-400">/</span>
+            <span className="text-[11px] text-line">/</span>
             <button
-              className={`text-sm uppercase transition-all duration-300 hover:scale-105 ${i18n.language === 'pl' ? 'font-bold underline text-gray-900 scale-105' : 'text-gray-600 hover:text-gray-900 hover:underline hover:underline-offset-4'}`}
+              className={langButtonClass('pl')}
               onClick={() => handleLanguageChange('pl')}
               aria-label="Switch to Polish"
             >
               PL
             </button>
-            </div>
           </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-200">
-          <nav className="flex flex-col py-4">
-            <Link 
-              to="/" 
-              className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 ${
-                isActive('/') ? 'text-gray-900 font-bold bg-gray-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t('nav.home')}
-            </Link>
-            <Link 
-              to="/projects" 
-              className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 ${
-                isActive('/projects') ? 'text-gray-900 font-bold bg-gray-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t('nav.projects')}
-            </Link>
-            <Link 
-              to="/services" 
-              className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 ${
-                isActive('/services') ? 'text-gray-900 font-bold bg-gray-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t('nav.services')}
-            </Link>
-            <Link 
-              to="/about" 
-              className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 ${
-                isActive('/about') ? 'text-gray-900 font-bold bg-gray-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t('nav.about')}
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 ${
-                isActive('/contact') ? 'text-gray-900 font-bold bg-gray-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t('nav.contact')}
-            </Link>
-            
-            {/* Language switcher - Mobile */}
-            <div className="px-6 py-3 border-t border-gray-200 mt-2">
-              <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-500 uppercase tracking-wider">Language:</span>
-                <button
-                  className={`text-sm uppercase transition-all duration-300 ${i18n.language === 'en' ? 'font-bold text-gray-900' : 'text-gray-600'}`}
-                  onClick={() => handleLanguageChange('en')}
-                  aria-label="Switch to English"
-                >
-                  EN
-                </button>
-                <span className="text-gray-400">/</span>
-                <button
-                  className={`text-sm uppercase transition-all duration-300 ${i18n.language === 'pl' ? 'font-bold text-gray-900' : 'text-gray-600'}`}
-                  onClick={() => handleLanguageChange('pl')}
-                  aria-label="Switch to Polish"
-                >
-                  PL
-                </button>
-              </div>
+        <div className="absolute left-0 right-0 top-16 border-t border-line bg-paper md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-5 py-2 sm:px-8">
+            {links.map((link, index) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`flex items-baseline gap-4 border-b border-line py-4 text-[13px] uppercase tracking-[0.2em] ${
+                  isActive(link.to) ? 'text-ink' : 'text-muted'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="w-6 text-[10px] tracking-[0.18em] text-muted">{String(index + 1).padStart(2, '0')}</span>
+                {link.label}
+              </Link>
+            ))}
+            <div className="flex items-center gap-3 py-4">
+              <button className={langButtonClass('en')} onClick={() => handleLanguageChange('en')} aria-label="Switch to English">
+                EN
+              </button>
+              <span className="text-[11px] text-line">/</span>
+              <button className={langButtonClass('pl')} onClick={() => handleLanguageChange('pl')} aria-label="Switch to Polish">
+                PL
+              </button>
             </div>
           </nav>
         </div>

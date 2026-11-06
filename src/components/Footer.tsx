@@ -1,27 +1,20 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
-  return (
-    <footer className="bg-white py-8 font-['Inter']">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo and tagline */}
-          <div className="col-span-1 md:col-span-1">
-            <div className="flex flex-col space-y-4">
-       
-            </div>
-          </div>
-        
-        </div>
+  const location = useLocation();
 
-        <div className="pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-gray-600 text-sm font-light">{t('footer.copyright')}</p>
-          </div>
-   
-        </div>
+  if (location.pathname === '/') {
+    return null;
+  }
+
+  return (
+    <footer className="mt-auto border-t border-line">
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
+        <p className="text-[11px] uppercase tracking-[0.22em] text-muted">IL Studio</p>
+        <p className="text-[12px] font-light text-muted">{t('footer.copyright')}</p>
       </div>
     </footer>
   );

@@ -1,1 +1,27 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-display: "w", "Times New Roman", serif;
+  --color-paper: #f6f4f0;
+  --color-ink: #1a1916;
+  --color-muted: #6e685f;
+  --color-line: #ddd7ce;
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #e4ddd2;
+    color: var(--color-ink);
+  }
+}
